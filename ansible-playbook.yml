@@ -5,4 +5,4 @@
     k8s:
       namespace: "default"
       state: "present"
-      src: "kubernetes/deployement.yml"
+      src: "kubernetes/deployment.yml"
