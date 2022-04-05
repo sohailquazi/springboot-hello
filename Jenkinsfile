@@ -30,7 +30,7 @@ pipeline {
         //         }
         //     }
         
-	    stage('Pushing Docker Image to Dockerhub') {
+	    stage ('Pushing Docker Image to Dockerhub') {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_credential') {
@@ -40,6 +40,7 @@ pipeline {
                     //  sh 'docker push sohailquazi/springboot-app:${TAG}'
                 }
             }
+        }
         
         stage('Deploy'){
             steps {
@@ -49,5 +50,4 @@ pipeline {
             }
         }
     }
-}
 }
