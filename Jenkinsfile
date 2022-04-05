@@ -10,14 +10,14 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh 'mvn clean package'
+                sudo sh 'mvn clean package'
             }
         }
         stage ("Build Docker Image") {
 
             steps{
 
-                     sh 'docker build -t sohailquazi/springboot-app:v1 .'
+                     sudo sh 'docker build -t sohailquazi/springboot-app:v1 .'
 
                 }
 
