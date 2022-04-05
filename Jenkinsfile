@@ -13,13 +13,22 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Docker Build') {
-            steps {
-                script {
-                    docker.build("sohailquazi/springboot-app:${TAG}")
+        stage ("Build Docker Image") {
+
+            steps{
+
+                     sh 'docker build -t sohailquazi/springboot-app:v1 .'
+
                 }
+
             }
-        }
+        // stage('Docker Build') {
+        //     steps {
+        //         script {
+        //             docker.build("sohailquazi/springboot-app:${TAG}")
+        //         }
+        //     }
+        // }
 	    // stage('Pushing Docker Image to Dockerhub') {
         //     steps {
         //         script {
