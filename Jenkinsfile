@@ -29,7 +29,7 @@ pipeline {
                      sh 'docker run -p 8090:8090 sohailquazi/springboot-app:${TAG}'
                 }
             }
-        }
+        
 	    stage('Pushing Docker Image to Dockerhub') {
             steps {
                 // script {
@@ -40,7 +40,7 @@ pipeline {
                      sh 'docker push sohailquazi/springboot-app:${TAG}'
                 }
             }
-        }
+        
         stage('Deploy'){
             steps {
                 sh "docker stop hello-world | true"
