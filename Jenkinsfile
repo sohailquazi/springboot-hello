@@ -23,21 +23,21 @@ pipeline {
 
             }
         // stage('Docker Build') {
-        //     // steps {
-        //     //     // script {
-        //     //     //     docker.build("sohailquazi/springboot-app:${TAG}")
-        //     //          sh 'docker run -p 8090:8090 sohailquazi/springboot-app:${TAG}'
-        //     //     }
+        //     steps {
+        //         // script {
+        //         //     docker.build("sohailquazi/springboot-app:${TAG}")
+        //              sh 'docker run -p 8090:8090 sohailquazi/springboot-app:${TAG}'
+        //         }
         //     }
         
 	    stage('Pushing Docker Image to Dockerhub') {
             steps {
-                // script {
-                //     docker.withRegistry('https://registry.hub.docker.com', 'docker_credential') {
-                //         docker.image("sohailquazi/springboot-app:${TAG}").push()
-                //         docker.image("sohailquazi/springboot-app:${TAG}").push("latest")
-                //     }
-                     sh 'docker push sohailquazi/springboot-app:${TAG}'
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_credential') {
+                        docker.image("sohailquazi/springboot-app:${TAG}").push()
+                        docker.image("sohailquazi/springboot-app:${TAG}").push("latest")
+                    }
+                    //  sh 'docker push sohailquazi/springboot-app:${TAG}'
                 }
             }
         
