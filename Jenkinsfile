@@ -22,13 +22,13 @@ pipeline {
                 }
 
             }
-        stage('Docker Build') {
-            steps {
-                // script {
-                //     docker.build("sohailquazi/springboot-app:${TAG}")
-                     sh 'docker run -p 8090:8090 sohailquazi/springboot-app:${TAG}'
-                }
-            }
+        // stage('Docker Build') {
+        //     // steps {
+        //     //     // script {
+        //     //     //     docker.build("sohailquazi/springboot-app:${TAG}")
+        //     //          sh 'docker run -p 8090:8090 sohailquazi/springboot-app:${TAG}'
+        //     //     }
+        //     }
         
 	    stage('Pushing Docker Image to Dockerhub') {
             steps {
