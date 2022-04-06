@@ -58,9 +58,9 @@ pipeline {
         
         stage ('Deploy'){
             steps {
-                sh "docker stop hello-world | true"
-                sh "docker rm hello-world | true"
-                sh "docker run --name hello-world -d -p 8090:8090 sohailquazi/springboot-app:${TAG}"
+                // sh "docker stop hello-world | true"
+                // sh "docker rm hello-world | true"
+                sh "docker run --name hello-world -d -p 8090:8080 sohailquazi/springboot-app:${TAG}"
             }
         }
     }
